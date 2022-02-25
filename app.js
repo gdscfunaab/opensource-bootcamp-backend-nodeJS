@@ -1,19 +1,23 @@
 const express = require('express');
-const { default: mongoose } = require('mongoose');
-const path = require('path');
+const mongoose = require('mongoose');
+const Router = require('./routes/router');
+const bodyParser = require('body-parser')
 const { resourceLimits } = require('worker_threads');
 const authRoutes = require('./routes/authRoutes');
 const port = 8080;
 
 const app= express();
+const port = 8080;
 
-//database 
-const dbURI = 'mongodb+srv://admin:12345abcde@userauth.e2sai.mongodb.net/user?retryWrites=true&w=majority';
-mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true })
+// Connect to a Database and then listen to a port
+mongoose.connect('mongodb://localhost:27017/userdb')
     .then((result) => app.listen(port, ()=>{
-        console.log('Server Listening on localhost:' + port)
+        console.log('Server Listening on http://localhost:' + port,'\n', 'Connection to local database has been made')
     }) )
-    .catch((err) => console.log(err));
+    .catch((err) => console.log(err.message));
+// app.listen(port, () => {
+//     console.log("Listening to port at port " + port)
+// })
 
 //middleware
 app.use(express.static(__dirname + '/public'));

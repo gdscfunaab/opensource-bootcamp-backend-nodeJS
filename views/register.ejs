@@ -3,17 +3,17 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Backend Project - Register Page</title>
+	<title><%= locals.title %> || Page</title>
 	<link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 <body>
 	<div class="login-page">
 	  <div class="form">
-	    <form class="register-form">
-	      <input type="text" placeholder="username"/>
-	      <input type="password" placeholder="password"/>
-	      <input type="password" placeholder="confirm password"/>
-	      <input type="text" placeholder="email address"/>
+	    <form class="register-form" action="/register" method="POST" >
+	      <input type="text" name="name" placeholder="username"/>
+	      <input type="password" name="password" placeholder="password"/>
+	      <input type="password" name="confirmPass" placeholder="confirm password"/>
+	      <input type="text" name="email" placeholder="email address"/>
 	      <button>create</button>
 	      <p class="message">Already registered? <a href="http://localhost:8080/login">Sign In</a></p>
 	    </form>
