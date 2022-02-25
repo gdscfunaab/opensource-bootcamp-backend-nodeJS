@@ -22,7 +22,7 @@ a{
 nav{
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
   margin-bottom: 120px;
 }
 nav ul{
@@ -37,7 +37,7 @@ nav li a{
   font-weight: 700;
   font-size: 0.8em;
   display: block;
-  padding: 10px 16px;
+  padding: 0px 16px;
   letter-spacing: 2px;
 }
 .btn{

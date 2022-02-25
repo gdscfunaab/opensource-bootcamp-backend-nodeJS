@@ -1,25 +1,14 @@
 const express = require('express');
-const AuthController = require('../Controller/authController')
 const route = express.Router();
+const { index_Get, login_Get, login_Post, register_Post, register_Get} = require('../Controller/authController');
 
 
-route.get('/', (req, res)=>{
-    res.render('home', { title: "Home"});
-})
+route.get('/', index_Get)
 
-route.get('/login', (req, res) => {
-    res.render('login', { title: "Login"});    
-})
-route.post('/login', (req, res) => {
+route.get('/login', login_Get)
+route.post('/login',  login_Post)
 
-})
-
-route.get('/register', (req, res) => {
-    res.render('register', { title: "Registration"});    
-
-})
-route.post('/register', (req, res) => {
-
-})
+route.get('/register',  register_Get)
+route.post('/register', register_Post)
 
 module.exports = route;
